@@ -16,14 +16,27 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
+    //AOP
+    //관점지향 프로그램
+    //공통 관심 사항과 핵심 관심 사항을 분리하는 것
 
     public long join(Member member){
-        //옵션 + 커맨드 + v
-        Optional<Member> result = memberRepository.findByName(member.getName());
 
-        validateDuplicateMember(member);
-        memberRepository.save(member);
-        return member.getId();
+        long start = System.currentTimeMillis();
+
+        try{
+            //옵션 + 커맨드 + v
+            Optional<Member> result = memberRepository.findByName(member.getName());
+
+            validateDuplicateMember(member);
+            memberRepository.save(member);
+            return member.getId();
+        }finally {
+            long end = System.currentTimeMillis();
+            long time = end - start;
+            System.out.println(time);
+        }
+
     }
 
     public void validateDuplicateMember(Member member){

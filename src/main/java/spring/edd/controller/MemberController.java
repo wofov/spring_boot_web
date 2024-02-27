@@ -20,6 +20,7 @@ public class MemberController {
 
     private final MemberService memberService;
 
+    //private final에 의해 아래 코드가 인잭션 받는다고 한다.
     public MemberController(MemberService memberService){
         this.memberService = memberService;
     }

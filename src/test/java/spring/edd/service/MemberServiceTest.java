@@ -1,19 +1,21 @@
 package spring.edd.service;
 
+
 import org.assertj.core.api.AbstractStringAssert;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 import spring.edd.domain.Member;
 import spring.edd.repository.MemoryMemberRepository;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
-
+@SpringBootTest
+//@Transactional
+//jdbc 의존성 필요, 테스트에 트랙잭션 있으면 자동으로 롤백
 class MemberServiceTest {
-
-
     MemberService memberService;
     MemoryMemberRepository repository;
     @BeforeEach
