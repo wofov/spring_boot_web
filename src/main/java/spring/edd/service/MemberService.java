@@ -1,4 +1,4 @@
-가package spring.edd.service;
+package spring.edd.service;
 
 import org.springframework.stereotype.Service;
 import spring.edd.domain.Member;
