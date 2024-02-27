@@ -1,5 +1,6 @@
 package spring.edd.repository;
 
+import org.springframework.stereotype.Repository;
 import spring.edd.domain.Member;
 
 import javax.swing.text.html.Option;
@@ -33,4 +34,9 @@ public class MemoryMemberRepository implements MemberRepository{
     public List<Member> findAll() {
         return new ArrayList<>(store.values());
     }
+
+    public void clearStore(){
+        store.clear();
+    }
+
 }
