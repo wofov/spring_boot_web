@@ -12,6 +12,7 @@ public class TimeTraceAop {
     @Around("execution(* spring.edd..*(..))")
     public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {
 
+        System.out.println("----");
         long start = System.currentTimeMillis();
         System.out.println("START: " + joinPoint.toString());
         try {
